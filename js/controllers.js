@@ -43,17 +43,21 @@ searchApp.controller('searchCtrl', function ($scope, $http) {
     "changeType": "Drop",
     "name": "Foo",
     "objectType": "Table",
-    "owner": "dbo"
+    "owner": "dbo",
+    "diffPaneInfoLeft": "Insert diff here",
+    "diffPaneInfoRight": "Insert diff here"
   },{
     "changeType": "Edit",
     "name": "ProductDescription",
     "objectType": "Table",
-    "owner": "Production"
+    "owner": "Production",
+    "diffPaneInfoLeft": "This is a piece of code to show in the diff pane",
+    "diffPaneInfoRight": "More diff here"
   }];
   
   $scope.selectedRow = {};
-  $scope.setRowSelection = function(result) {
-    $scope.selectedRow = result;
+  $scope.setRowSelection = function(item) {
+    $scope.selectedRow = item;
   };
   
 });
