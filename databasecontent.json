@@ -1,0 +1,155 @@
+[{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Column",
+  "detail": ""
+},{
+  "objectName": "Something",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Else",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Entirely",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "And",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "So",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "On",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "And",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "So",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Forth",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Also",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "This",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "And",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "That",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+},{
+  "objectName": "Customer",
+  "schema": "Sales",
+  "database": "AdventureWorks",
+  "type": "User table",
+  "matchesOn": "Text",
+  "detail": ""
+}]
