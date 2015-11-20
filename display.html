@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>search mockup</title>
+  <title>SQL Server Management Studio - SQL Source Control</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -19,18 +19,75 @@
 </head>
 
 <body ng-controller="searchCtrl">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">SQL Server Management Studio</a>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
   <nav class="nav navbar-default">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul ng-repeat="item in menuList" class="nav navbar-nav">
-        <li><a href="#">{{item}}</a></li>
+      <ul class="nav navbar-nav">
+        <li ng-repeat="item in menuList"><a href="#">{{item}}</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
     </div>
   </nav>
 
   <div class="container">
-    <div class="table-container">
+    <div class="row">
+       <div class="col-md-3">
+        <h2>Object Explorer</h2>
+        <ul>
+          <li ng-repeat="item in objectExplorerContents">{{item}}</li>
+        </ul>
+       </div>
+       <div class="col-md-9">
+
+        <ul class="nav nav-tabs">
+          <li ng-repeat="item in ssmsTabs" role="presentation" ng-class="item.class">
+            <a href="#">{{item.name}}</a>
+          </li>
+        </ul>
+        <hr>
+
+        <ul class="nav nav-tabs"> <!-- TODO: make selecting tabs change which is active -->
+          <li ng-repeat="item in socTabs" role="presentation" ng-class="item.class">
+            <a href="#">{{item.name}}</a>
+          </li>
+        </ul>
+        <hr>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Change type</th>
+              <th>Change name</th>
+              <th>Object type</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
+            <td>{{item.changeType}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.objectType}}</td>
+            <td>{{item.owner}}</td>
+          </tr>
+        </tbody>
+        </table>
+
+
+       </div>
+    </div>
+  </div>
+
+  <div class="container">
+ <!--    <div class="table-container">
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
@@ -42,7 +99,7 @@
             <th>Detail</th>
           </tr>
         </thead>
-        <!-- <tbody>
+        <tbody>
           <tr ng-repeat="result in searchResults | filter: { objectName: searchTerm}" ng-click="setRowSelection(result)" ng-class="{success: result===selectedRow}">
              insert in ng-repeat to add pagination  | startFrom:currentPage*pageSize | limitTo:pageSize
             <td>{{result.objectName}}</td>
@@ -52,9 +109,9 @@
             <td>{{result.matchesOn}}</td>
             <td>{{result.detail}}</td>
           </tr>
-        </tbody> -->
+        </tbody>
       </table>
-    </div>
+    </div> -->
     <!-- <textarea ui-codemirror>{{selectedRow.detail}}</textarea> -->
   </div>
   <!-- /container -->
