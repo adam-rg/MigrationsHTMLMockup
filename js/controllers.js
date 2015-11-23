@@ -54,8 +54,6 @@ searchApp.controller('searchCtrl', function ($scope) {
     "diffPaneInfoRight": "More diff here",
     "selected": "false"
   }];
-
-  $scope.checkboxModel = {};
   
   $scope.selectedRow = {};
   $scope.setRowSelection = function(item) {

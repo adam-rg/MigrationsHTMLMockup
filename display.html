@@ -94,7 +94,7 @@
           <tbody>
           <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
             <td>{{item.changeType}}</td>
-            <td><input type="checkbox" ng-model="checkboxModel[item.id]" name="group"> {{item.name}}</td>
+            <td><input type="checkbox" ng-model="item.selected" name="group"> {{item.name}}</td>
             <td>{{item.objectType}}</td>
             <td>{{item.owner}}</td>
           </tr>
@@ -143,7 +143,7 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
-                      <td><input type="checkbox" ng-model="checkboxModel[item.id]" name="group"> {{item.name}}</td>
+                      <td><input type="checkbox" ng-model="item.selected" name="group"> {{item.name}}</td>
                       <!--TODO: remove shared checkbox model between tables -->
                       <td>{{item.objectType}}</td>
                       <td>{{item.owner}}</td>
