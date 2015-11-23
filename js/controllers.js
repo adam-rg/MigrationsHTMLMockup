@@ -43,7 +43,7 @@ searchApp.controller('searchCtrl', function ($scope) {
     "owner": "dbo",
     "diffPaneInfoLeft": "Insert diff here",
     "diffPaneInfoRight": "Insert diff here",
-    "selected": "false"
+    "checked": "false"
   },{
     "id": 1,
     "changeType": "Edit",
@@ -52,7 +52,7 @@ searchApp.controller('searchCtrl', function ($scope) {
     "owner": "Production",
     "diffPaneInfoLeft": "This is a piece of code to show in the diff pane",
     "diffPaneInfoRight": "More diff here",
-    "selected": "false"
+    "checked": "false"
   }];
   
   $scope.selectedRow = {};
