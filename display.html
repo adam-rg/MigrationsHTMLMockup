@@ -13,8 +13,10 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/app.css" rel="stylesheet">
+  <script src="lib/jquery/jquery-1.10.2.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
+  <script src="js/bootstrap.js"></script>
   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 </head>
 
@@ -79,7 +81,7 @@
         </div>
 
 
-        <div class="alert alert-warning" role="alert">Two changes that could cause data loss. <a href="">Create a migration script</a></div>
+        <div class="alert alert-warning" role="alert">Two changes that could cause data loss. <a href="" data-toggle="modal" data-target="#migrationsWindow">Create a migration script</a></div>
         <table class="table">
           <thead>
             <tr>
@@ -92,7 +94,7 @@
           <tbody>
           <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
             <td>{{item.changeType}}</td>
-            <td><input type="checkbox"> {{item.name}}</td>
+            <td><input type="checkbox" ng-model="checkboxModel[item.id]" name="group"> {{item.name}}</td>
             <td>{{item.objectType}}</td>
             <td>{{item.owner}}</td>
           </tr>
@@ -119,7 +121,49 @@
         </div>
 
        </div> <!--end col-md-9 -->
-    </div>
+    </div> <!--end row -->
+
+    <div class="modal fade" id="migrationsWindow">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Select objects and edit scripts</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th><input type="checkbox"> Change name</th>
+                      <th>Object type</th>
+                      <th>Owner</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
+                      <td><input type="checkbox" ng-model="checkboxModel[item.id]" name="group"> {{item.name}}</td>
+                      <!--TODO: remove shared checkbox model between tables -->
+                      <td>{{item.objectType}}</td>
+                      <td>{{item.owner}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <h4>Migration script editor</h4>
+                <p ng-repeat="item in commitGridContents | filter: $scope.checkboxModel[item.id] ">{{item.name}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </div>
 
   <div class="container">

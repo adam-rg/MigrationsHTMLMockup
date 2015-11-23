@@ -3,12 +3,8 @@
 /* Controllers */
 var searchApp = angular.module('searchApp', []);
 
-searchApp.controller('searchCtrl', function ($scope, $http) {
+searchApp.controller('searchCtrl', function ($scope) {
 
-  $http.get('databasecontent.json').then(function (res) {
-    $scope.searchResults = res.data;
-  });
-  
   $scope.menuList = ["File", "Edit", "View", "Tools", "Window", "Community", "Help"];
   $scope.objectExplorerContents = ["Server", "Databases", "System Databases", "Adventureworks", "Development", "MigTeamDev", "MigTeamTest", "MigTeamStaging", "MigTeamProd"];
   $scope.ssmsTabs = [{
@@ -40,20 +36,26 @@ searchApp.controller('searchCtrl', function ($scope, $http) {
   }];
 
   $scope.commitGridContents = [{
+    "id": 0,
     "changeType": "Drop",
     "name": "Foo",
     "objectType": "Table",
     "owner": "dbo",
     "diffPaneInfoLeft": "Insert diff here",
-    "diffPaneInfoRight": "Insert diff here"
+    "diffPaneInfoRight": "Insert diff here",
+    "selected": "false"
   },{
+    "id": 1,
     "changeType": "Edit",
     "name": "ProductDescription",
     "objectType": "Table",
     "owner": "Production",
     "diffPaneInfoLeft": "This is a piece of code to show in the diff pane",
-    "diffPaneInfoRight": "More diff here"
+    "diffPaneInfoRight": "More diff here",
+    "selected": "false"
   }];
+
+  $scope.checkboxModel = {};
   
   $scope.selectedRow = {};
   $scope.setRowSelection = function(item) {
