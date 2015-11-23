@@ -41,8 +41,10 @@ searchApp.controller('searchCtrl', function ($scope) {
     "name": "Foo",
     "objectType": "Table",
     "owner": "dbo",
-    "diffPaneInfoLeft": "Insert diff here",
-    "diffPaneInfoRight": "Insert diff here",
+    "diffPaneInfoLeft": "Insert diff here for Foo",
+    "diffPaneInfoRight": "Insert diff here for Foo",
+    "showScript": "false",
+    "migScript": "This will be the editable migration script",
     "checked": "false"
   },{
     "id": 1,
@@ -50,14 +52,24 @@ searchApp.controller('searchCtrl', function ($scope) {
     "name": "ProductDescription",
     "objectType": "Table",
     "owner": "Production",
-    "diffPaneInfoLeft": "This is a piece of code to show in the diff pane",
-    "diffPaneInfoRight": "More diff here",
+    "diffPaneInfoLeft": "This is a piece of code to show in the diff pane for ProductDescription",
+    "diffPaneInfoRight": "More diff here for ProductDescription",
+    "showScript": "false",
+    "migScript": "This will be the editable migration script",
     "checked": "false"
   }];
   
   $scope.selectedRow = {};
   $scope.setRowSelection = function(item) {
     $scope.selectedRow = item;
+  };
+
+  $scope.clickEditButton = function(item) {
+    if (item.showScript === true) {
+      item.showScript = false;
+    } else {
+      item.showScript = true;
+    }
   };
   
 });
