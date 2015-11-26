@@ -58,6 +58,18 @@ searchApp.controller('searchCtrl', function ($scope) {
     "migScript": "This will be the editable migration script",
     "checked": "false"
   }];
+
+  $scope.previousCommits = [{
+    "id": 0,
+    "message": "Added a table",
+    "date": "12.10.15",
+    "checked": "false"
+  },{
+     "id": 1,
+    "message": "Renamed a column",
+    "date": "13.10.15",
+    "checked": "false"
+  }];
   
   $scope.selectedRow = {};
   $scope.setRowSelection = function(item) {

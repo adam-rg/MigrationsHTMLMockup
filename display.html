@@ -153,18 +153,88 @@
               </div>
               <div class="col-md-6">
                 <h4>Migration script editor</h4>
-                <div ng-repeat="item in commitGridContents | filter: item.checked = true " class="panel panel-info">
-                  <div class="panel-heading">{{item.name}} <button class="btn btn-default" ng-click="clickEditButton(item)">Edit</button></div>
-                  <div class="panel-body" ng-show="item.showScript">
-                    {{item.migScript}}
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          Start from blank script
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <p>If you haven't made the change yet, this is the best option.</p>
+                        <button class="btn btn-default pull-right" type="submit">Create script</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Start from a SQL Compare script
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        <p>Select objects to generate a starting script.</p>
+                         <table class="table">
+                          <thead>
+                            <tr>
+                              <th><input type="checkbox"> Change name</th>
+                              <th>Object type</th>
+                              <th>Owner</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
+                              <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.name}}</td>
+                              <!--TODO: remove shared checkbox model between tables -->
+                              <td>{{item.objectType}}</td>
+                              <td>{{item.owner}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <button class="btn btn-default pull-right" type="submit">Generate script</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <p>Replace a committed change from history.</p>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                      <div class="panel-body">
+                         <table class="table">
+                          <thead>
+                            <tr>
+                              <th><input type="checkbox"> Commit ID</th>
+                              <th>Commit message</th>
+                              <th>Date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="item in previousCommits">
+                              <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.id}}</td>
+                              <!--TODO: remove shared checkbox model between tables -->
+                              <td>{{item.message}}</td>
+                              <td>{{item.date}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                         <button class="btn btn-default pull-right" type="submit">Generate script</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </div><!-- /.col-md-6 -->
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
