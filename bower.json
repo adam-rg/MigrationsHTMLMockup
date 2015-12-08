@@ -1,0 +1,14 @@
+{
+  "name": "MigrationsPrototype",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bethaitman/MigrationsPrototype",
+  "authors": [],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8"
+  }
+}
