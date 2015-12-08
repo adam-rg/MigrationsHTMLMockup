@@ -72,9 +72,19 @@ searchApp.controller('searchCtrl', function ($scope) {
   }];
   
   $scope.selectedRow = {};
+
   $scope.setRowSelection = function(item) {
     $scope.selectedRow = item;
+    
   };
+
+  $scope.toggleSelectAllCommitGrid = function($event) {
+    // foreach item in commitGridContents, set the checked property to the select all checkbox state.
+    $scope.commitGridContents.map(function(item) {
+      item.checked = $event.target.checked;
+    });
+  };
+  
 
   $scope.clickEditButton = function(item) {
     if (item.showScript === true) {
