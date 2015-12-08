@@ -45,7 +45,7 @@ searchApp.controller('searchCtrl', function ($scope) {
     "diffPaneInfoRight": "Insert diff here for Foo",
     "showScript": "false",
     "migScript": "This will be the editable migration script",
-    "checked": "false"
+    "checked": false
   },{
     "id": 1,
     "changeType": "Edit",
@@ -56,19 +56,19 @@ searchApp.controller('searchCtrl', function ($scope) {
     "diffPaneInfoRight": "More diff here for ProductDescription",
     "showScript": "false",
     "migScript": "This will be the editable migration script",
-    "checked": "false"
+    "checked": false
   }];
 
   $scope.previousCommits = [{
     "id": 0,
     "message": "Added a table",
     "date": "12.10.15",
-    "checked": "false"
+    "checked": false
   },{
      "id": 1,
     "message": "Renamed a column",
     "date": "13.10.15",
-    "checked": "false"
+    "checked": false
   }];
   
   $scope.commitGridSelectAllCheckbox = false;
@@ -83,7 +83,7 @@ searchApp.controller('searchCtrl', function ($scope) {
       return previousItem.checked && currentItem.checked;
     });
 
-    $scope.commitGridSelectAllCheckbox = areAllCheckboxesNowChecked
+    $scope.commitGridSelectAllCheckbox = areAllCheckboxesNowChecked;
   };
 
   $scope.toggleSelectAllCommitGrid = function($event) {
@@ -93,7 +93,6 @@ searchApp.controller('searchCtrl', function ($scope) {
     });
   };
   
-
   $scope.clickEditButton = function(item) {
     if (item.showScript === true) {
       item.showScript = false;
