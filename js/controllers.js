@@ -91,6 +91,8 @@ searchApp.controller('searchCtrl', function ($scope) {
     $scope.commitGridContents.map(function(item) {
       item.checked = $event.target.checked;
     });
+
+    $scope.commitGridSelectAllCheckbox = $event.target.checked;
   };
   
   $scope.clickEditButton = function(item) {
