@@ -71,11 +71,19 @@ searchApp.controller('searchCtrl', function ($scope) {
     "checked": "false"
   }];
   
+  $scope.commitGridSelectAllCheckbox = false;
+
   $scope.selectedRow = {};
 
   $scope.setRowSelection = function(item) {
     $scope.selectedRow = item;
     
+    // foreach item in commitGridContents, inspect the checked property, if everyone's is true, return true.
+    var areAllCheckboxesNowChecked = $scope.commitGridContents.reduce(function(previousItem, currentItem) {
+      return previousItem.checked && currentItem.checked;
+    });
+
+    $scope.commitGridSelectAllCheckbox = areAllCheckboxesNowChecked
   };
 
   $scope.toggleSelectAllCommitGrid = function($event) {
