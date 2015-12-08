@@ -1,0 +1,22 @@
+{
+  "name": "migrations-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "display.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bethaitman/MigrationsPrototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bethaitman/MigrationsPrototype/issues"
+  },
+  "homepage": "https://github.com/bethaitman/MigrationsPrototype#readme",
+  "dependencies": {
+    "bower": "^1.7.0"
+  }
+}
