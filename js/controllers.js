@@ -94,11 +94,6 @@ searchApp.controller('searchCtrl', function ($scope) {
   };
   
   $scope.clickEditButton = function(item) {
-    if (item.showScript === true) {
-      item.showScript = false;
-    } else {
-      item.showScript = true;
-    }
+    item.showScript = !item.showScript;
   };
-  
 });
