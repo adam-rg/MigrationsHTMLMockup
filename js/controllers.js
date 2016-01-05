@@ -18,23 +18,6 @@ searchApp.controller('searchCtrl', function ($scope) {
     "class": "active"
   }];
 
-  $scope.socTabs = [{
-    "name": "Commit changes",
-    "class": "active"
-  },{
-    "name": "Get latest",
-    "class": ""
-  },{
-    "name": "Migrations",
-    "class": ""
-  },{
-    "name": "Object locking",
-    "class": ""
-  },{
-    "name": "Setup",
-    "class": ""
-  }];
-
   $scope.commitGridContents = [{
     "id": 0,
     "changeType": "Drop",
@@ -98,4 +81,6 @@ searchApp.controller('searchCtrl', function ($scope) {
   $scope.clickEditButton = function(item) {
     item.showScript = !item.showScript;
   };
+
+  
 });

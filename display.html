@@ -46,90 +46,119 @@
        </div>
        <div class="col-md-9">
 
-        <ul class="nav nav-tabs">
+        <!-- <ul class="nav nav-tabs">
           <li ng-repeat="item in ssmsTabs" role="presentation" ng-class="item.class">
             <a href="#">{{item.name}}</a>
           </li>
         </ul>
-        <hr>
+        <hr> -->
 
-        <ul class="nav nav-tabs"> <!-- TODO: make selecting tabs change which is active -->
-          <li ng-repeat="item in socTabs" role="presentation" ng-class="item.class">
-            <a href="#">{{item.name}}</a>
+        <ul class="nav nav-tabs" role="tablist" id="myTabs" > 
+          <li role="presentation">
+            <a href="#commit" id="commit-tab" data-toggle="tab" role="tab">Commit changes</a>
+          </li>
+          <li role="presentation" data-toggle="tab">
+            <a href="#get" id="get-tab" data-toggle="tab" role="tab">Get latest</a>
+          </li>
+          <li role="presentation" data-toggle="tab" class="active">
+            <a href="#mig" id="mig-tab" data-toggle="tab" role="tab">Migrations</a>
+          </li>
+          <li role="presentation" data-toggle="tab">
+            <a href="#lock" id="lock-tab" data-toggle="tab" role="tab">Object locking</a>
+          </li>
+          <li role="presentation" data-toggle="tab">
+            <a href="#setup" id="setup-tab" data-toggle="tab" role="tab">Setup</a>
           </li>
         </ul>
         <hr>
-
-        <div class="row">
-          <div class="col-md-10">
-            <form>
-              <textarea class="form-control" placeholder="Enter a comment describing your changes"></textarea>
-            </form>
-          </div>
-          <div class="col-md-1">
-            <button class="btn btn-default">Commit</button>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-question-sign pad-left"></span>
-            <br>
-            <span class="glyphicon glyphicon-refresh pad-left"></span>
-          </div>
-        </div>
-
-
-        <div class="alert alert-warning" role="alert">Two changes that could cause data loss. <a href="" data-toggle="modal" data-target="#migrationsWindow">Create a migration script</a></div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Change type</th>
-              <th><input type="checkbox" id="select-all-commit-grid" ng-click="toggleSelectAllCommitGrid($event)" ng-checked="commitGridSelectAllCheckbox"> Change name</th>
-              <th>Object type</th>
-              <th>Owner</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
-            <td>{{item.changeType}}</td>
-            <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.name}}</td>
-            <td>{{item.objectType}}</td>
-            <td>{{item.owner}}</td>
-          </tr>
-        </tbody>
-        </table>
-
-        <div class="alert alert-info" role="alert">
+        <!-- Commented out the commit grid
+        <div role="tabpanel" class="tab-pane fade active in" id="commit" >
           <div class="row">
-            <div class="col-md-6">
-              <p>Database version</p>
+            <div class="col-md-10">
+              <form>
+                <textarea class="form-control" placeholder="Enter a comment describing your changes"></textarea>
+              </form>
             </div>
-            <div class="col-md-6">
-              <p>Source control version</p>
+            <div class="col-md-1">
+              <button class="btn btn-default">Commit</button>
+            </div>
+            <div class="col-md-1">
+              <span class="glyphicon glyphicon-question-sign pad-left"></span>
+              <br>
+              <span class="glyphicon glyphicon-refresh pad-left"></span>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            {{selectedRow.diffPaneInfoLeft}}
-          </div>
-          <div class="col-md-6">
-            {{selectedRow.diffPaneInfoRight}}
-          </div>
-        </div>
 
-       </div> <!--end col-md-9 -->
-    </div> <!--end row -->
 
-    <div class="modal fade" id="migrationsWindow">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Select objects and edit scripts</h4>
-          </div>
-          <div class="modal-body">
+          <div class="alert alert-warning" role="alert">Two changes that could cause data loss. <a href="" data-toggle="modal" data-target="#migrationsWindow">Create a migration script</a></div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Change type</th>
+                <th><input type="checkbox" id="select-all-commit-grid" ng-click="toggleSelectAllCommitGrid($event)" ng-checked="commitGridSelectAllCheckbox"> Change name</th>
+                <th>Object type</th>
+                <th>Owner</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
+              <td>{{item.changeType}}</td>
+              <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.name}}</td>
+              <td>{{item.objectType}}</td>
+              <td>{{item.owner}}</td>
+            </tr>
+          </tbody>
+          </table>
+
+          <div class="alert alert-info" role="alert">
             <div class="row">
               <div class="col-md-6">
-                <table class="table">
+                <p>Database version</p>
+              </div>
+              <div class="col-md-6">
+                <p>Source control version</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              {{selectedRow.diffPaneInfoLeft}}
+            </div>
+            <div class="col-md-6">
+              {{selectedRow.diffPaneInfoRight}}
+            </div>
+          </div>
+        </div> -->
+    <div role="tabpanel" class="tab-pane fade active in" id="mig" >
+        <h4>Migration script editor</h4>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Start from blank script
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <p>If you haven't made the change yet, this is the best option.</p>
+                <button class="btn btn-default pull-right" type="submit">Create script</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Start from a SQL Compare script
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                <p>Select objects to generate a starting script.</p>
+                 <table class="table">
                   <thead>
                     <tr>
                       <th><input type="checkbox"> Change name</th>
@@ -146,96 +175,100 @@
                     </tr>
                   </tbody>
                 </table>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">
+                  Edit script
+                </button>
               </div>
-              <div class="col-md-6">
-                <h4>Migration script editor</h4>
-                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                  <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                      <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                          Start from blank script
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                      <div class="panel-body">
-                        <p>If you haven't made the change yet, this is the best option.</p>
-                        <button class="btn btn-default pull-right" type="submit">Create script</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                      <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Start from a SQL Compare script
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                      <div class="panel-body">
-                        <p>Select objects to generate a starting script.</p>
-                         <table class="table">
-                          <thead>
-                            <tr>
-                              <th><input type="checkbox"> Change name</th>
-                              <th>Object type</th>
-                              <th>Owner</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr ng-repeat="item in commitGridContents" ng-click="setRowSelection(item)" ng-class="{success: item===selectedRow}">
-                              <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.name}}</td>
-                              <!--TODO: remove shared checkbox model between tables -->
-                              <td>{{item.objectType}}</td>
-                              <td>{{item.owner}}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <button class="btn btn-default pull-right" type="submit">Generate script</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                      <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          <p>Replace a committed change from history.</p>
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                      <div class="panel-body">
-                         <table class="table">
-                          <thead>
-                            <tr>
-                              <th><input type="checkbox"> Commit ID</th>
-                              <th>Commit message</th>
-                              <th>Date</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr ng-repeat="item in previousCommits">
-                              <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.id}}</td>
-                              <!--TODO: remove shared checkbox model between tables -->
-                              <td>{{item.message}}</td>
-                              <td>{{item.date}}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                         <button class="btn btn-default pull-right" type="submit">Generate script</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.col-md-6 -->
             </div>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <p>Replace a committed change from history.</p>
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                 <table class="table">
+                  <thead>
+                    <tr>
+                      <th><input type="checkbox"> Commit ID</th>
+                      <th>Commit message</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in previousCommits">
+                      <td><input type="checkbox" ng-model="item.checked" name="group"> {{item.id}}</td>
+                      <!--TODO: remove shared checkbox model between tables -->
+                      <td>{{item.message}}</td>
+                      <td>{{item.date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                 <button class="btn btn-default pull-right" type="submit">Generate script</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.col-md-9 -->
+      </div>
+    </div>
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit migration script</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter script name here">
+            </div>
+            <div class="form-group">
+              <label for="script">Edit script:</label>
+              <textarea id="script" class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Next</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit migration script</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter script name here">
+            </div>
+          </form>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" >Next</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="container">
     <!-- <textarea ui-codemirror>{{selectedRow.detail}}</textarea> -->
