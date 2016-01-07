@@ -54,13 +54,13 @@
         <hr> -->
 
         <ul class="nav nav-tabs" role="tablist" id="myTabs" > 
-          <li role="presentation" class="active">
+          <li role="presentation">
             <a href="#commit" id="commit-tab" role="tab" data-toggle="tab">Commit changes</a>
           </li>
           <li role="presentation">
             <a href="#get" id="get-tab" role="tab" data-toggle="tab">Get latest</a>
           </li>
-          <li role="presentation">
+          <li role="presentation" class="active">
             <a href="#mig" id="mig-tab" role="tab" data-toggle="tab">Migrations</a>
           </li>
           <li role="presentation">
@@ -72,7 +72,7 @@
         </ul>
         <hr>
         
-        <div role="tabpanel" class="tab-pane fade active in" id="commit" >
+        <div role="tabpanel" class="tab-pane fade" id="commit" >
           <div class="row">
             <div class="col-md-10">
               <form>
@@ -130,7 +130,7 @@
           </div><!-- /.row -->
         </div><!-- /.tab pane (end of commit tab) -->
 
-        <div role="tabpanel" class="tab-pane fade" id="mig" >
+        <div role="tabpanel" class="tab-pane fade active in" id="mig" >
           <h4>Migration script editor</h4>
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
