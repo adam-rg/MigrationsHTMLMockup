@@ -3,10 +3,10 @@ HTML prototypes of Adam's mockups
 
 # BUILD
 
-Clone this repo
+1. Clone this repo
 
-Install Node
+2. Install Node
 
-From the source directory run: `npm install` then `bower install`
+3. From the source directory run: `npm install` then `bower install`
 
-Load display.html in a browser.
+4. Load display.html in a browser.
