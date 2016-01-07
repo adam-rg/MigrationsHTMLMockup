@@ -134,6 +134,7 @@
           <div role="tabpanel" class="tab-pane fade active in" id="mig" >
             <h4>Migration script editor</h4>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
@@ -141,14 +142,15 @@
                       Start from blank script
                     </a>
                   </h4>
-                </div>
+                </div><!-- /.panel-heading -->
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <p>If you haven't made the change yet, this is the best option.</p>
                     <button class="btn btn-default pull-right" type="submit">Create script</button>
                   </div>
-                </div>
-              </div>
+                </div> <!-- /#CollapseOne -->
+              </div><!-- /.panel -->
+
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo">
                   <h4 class="panel-title">
@@ -182,8 +184,9 @@
                       Edit script
                     </button>
                   </div>
-                </div>
-              </div>
+                </div><!-- /#CollapseTwo -->
+              </div><!-- /.panel -->
+
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
@@ -213,10 +216,10 @@
                     </table>
                      <button class="btn btn-default pull-right" type="submit">Generate script</button>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- /.tab pane (end of migrations tab) -->
+                </div><!-- /#CollapseThree -->
+              </div><!-- /.panel -->
+            </div><!-- /.panel-group (inside migs tab) -->
+          </div> <!-- /.tab-panel (end of migrations tab) -->
 
         </div> <!-- /.tab-content -->
       </div><!-- /.col-md-9 -->
