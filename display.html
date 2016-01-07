@@ -54,24 +54,24 @@
         <hr> -->
 
         <ul class="nav nav-tabs" role="tablist" id="myTabs" > 
-          <li role="presentation">
+          <li role="presentation" class="active">
             <a href="#commit" id="commit-tab" role="tab" data-toggle="tab">Commit changes</a>
           </li>
-          <li role="presentation" data-toggle="tab">
+          <li role="presentation">
             <a href="#get" id="get-tab" role="tab" data-toggle="tab">Get latest</a>
           </li>
-          <li role="presentation" data-toggle="tab" class="active">
+          <li role="presentation">
             <a href="#mig" id="mig-tab" role="tab" data-toggle="tab">Migrations</a>
           </li>
-          <li role="presentation" data-toggle="tab">
+          <li role="presentation">
             <a href="#lock" id="lock-tab" role="tab" data-toggle="tab">Object locking</a>
           </li>
-          <li role="presentation" data-toggle="tab">
+          <li role="presentation">
             <a href="#setup" id="setup-tab" role="tab" data-toggle="tab">Setup</a>
           </li>
         </ul>
         <hr>
-        <!-- Commented out the commit grid
+        
         <div role="tabpanel" class="tab-pane fade active in" id="commit" >
           <div class="row">
             <div class="col-md-10">
@@ -87,7 +87,7 @@
               <br>
               <span class="glyphicon glyphicon-refresh pad-left"></span>
             </div>
-          </div>
+          </div><!-- /.row -->
 
 
           <div class="alert alert-warning" role="alert">Two changes that could cause data loss. <a href="" data-toggle="modal" data-target="#migrationsWindow">Create a migration script</a></div>
@@ -119,7 +119,8 @@
                 <p>Source control version</p>
               </div>
             </div>
-          </div>
+          </div><!-- /.alert -->
+
           <div class="row">
             <div class="col-md-6">
               {{selectedRow.diffPaneInfoLeft}}
@@ -127,9 +128,10 @@
             <div class="col-md-6">
               {{selectedRow.diffPaneInfoRight}}
             </div>
-          </div>
-        </div> -->
-        <div role="tabpanel" class="tab-pane fade active in" id="mig" >
+          </div><!-- /.row -->
+        </div><!-- /.tab pane -->
+
+        <div role="tabpanel" class="tab-pane fade" id="mig" >
           <h4>Migration script editor</h4>
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
